@@ -4,18 +4,20 @@ import imageio
 
 datos= np.genfromtxt('datos.txt',delimiter=",")
 print(np.shape(datos))
-x=datos[0,1:201]
+
+# codigo de gif, utilizado bajo el permiso de Andres Florez:
 
 def plot_for_offset(i, datos):
     amp=datos[i,1:201]
     t=datos[1:1201,0]
+    x=datos[0,1:201]
     dt=datos[2,0]-datos[1,0]
 
     fig, ax = plt.subplots(figsize=(10,5))
-    ax.plot(t, amp)
+    ax.plot(x, amp)
     ax.grid()
-    ax.set(xlabel='tiempo ={}'.format(i*dt), ylabel='Amplitud',
-           title='cuerda')
+    ax.set(xlabel='tiempo [s]={}'.format(i*dt), ylabel='Amplitud',
+           title='cuerda con amplitud inicial y extremos fijos')
 
     ax.set_ylim(-0.02, 0.02)
 
@@ -27,4 +29,4 @@ def plot_for_offset(i, datos):
     return image
 
 kwargs_write = {'fps':20.0, 'quantizer':'nq'}
-imageio.mimsave('./chevere.gif', [plot_for_offset(i, datos) for i in range(1,len(datos[:,0])-1)], fps=20)
+imageio.mimsave('./chevere.gif', [plot_for_offset(i, datos) for i in range(1,80)], fps=20)

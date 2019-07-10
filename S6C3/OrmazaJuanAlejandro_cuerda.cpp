@@ -66,12 +66,13 @@ int main()
             futuro[j]=r2*(phi[j+1]+phi[j-1]-2*phi[j])-pasado[j]+2*phi[j];
         } 
         //futuro[puntos]=futuro[puntos-1]
+        //futuro[puntos]=cos de algo
         for(int i=0; i<puntos;i++){
             pasado[i]=phi[i];
             phi[i]=futuro[i];                
         }
             
-            if(t%20==0){
+            if(t%50==0){
                 cout<<t*dt<<",";
                 for(int k=0;k<puntos;k++){
                     cout<<phi[k]<<",";
