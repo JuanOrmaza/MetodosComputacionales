@@ -1,4 +1,4 @@
-all: a.out datos.txt OrmazaJuanAlejandro_cuerda.cpp
+all: a.out datos.txt OrmazaJuanAlejandro_cuerda.cpp Plots_cuerda.py
 
 a.out: OrmazaJuanAlejandro_cuerda.cpp
 	g++ OrmazaJuanAlejandro_cuerda.cpp
