@@ -82,8 +82,9 @@ int main()
     for(int i=0;i<puntos;i++){
         counter++;
         for(int j=0;j<puntos;j++){
-            // se crea el pasado a partir del presente, y se crea un futuro a partir del futuro convertido en presente.
+            // se crea el pasado a partir del presente, y se crea un futuro a partir del presente y pasado convertido en presente.
             pasados=pasado(phi,puntos);
+            past[j]=*(pasados+j);
             phi[j]=future[j];
             futuros=futuro(phi,pasados,puntos,r2);
             future[j]=*(futuros+j);
