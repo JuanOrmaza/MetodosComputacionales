@@ -11,7 +11,7 @@ int main()
     float dx=0.01;
     int puntos=longitud/dx;
     double tmax=2500;
-    float dt=(dx/nu)*0.25;
+    float dt=((dx*dx)/nu)*0.25;
     int puntosT=tmax/dt;
     
     //crear placa inicial
@@ -43,11 +43,11 @@ int main()
     {
         for(int i=1;i<puntos-1;i++){
             for(int j=1;j<puntos-1;j++){
-                placafut[i][j]=nu*dt*((placa[i+1][j]+placa[i-1][j]-placa[i][j+1]-placa[i][j-1])/(dx*dx)) + placa[i][j];
+                placafut[i][j]=nu*(dt/(dx*dx))*((placa[i+1][j]+placa[i-1][j]+placa[i][j+1]+placa[i][j-1])-4*placa[i][j]) + placa[i][j];
             }
         }
-        for(int i=0;i<puntos;i++){
-            for(int j=0;j<puntos;j++){
+        for(int i=1;i<puntos-1;i++){
+            for(int j=1;j<puntos-1;j++){
                 placa[i][j]=placafut[i][j];
             }
         }
@@ -72,7 +72,7 @@ int main()
                 outfile<<endl;
             }
         }
-        if(t==2){
+        if(t==puntosT-1){
         ofstream outfile;
         outfile.open("datos4.txt");
             for(int i=0;i<puntos;i++){
