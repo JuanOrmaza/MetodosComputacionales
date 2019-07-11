@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 
-int main()
+int caso1()
 {
     //condiciones iniciales
     float nu=1e-4;
@@ -84,8 +84,16 @@ int main()
         }
     
     }
-    
-    
-    
-
+    return 0;
 }
+
+int main()
+{
+    cout<<"indique que caso quiere, (solo puede escoger del 1 al 3): "<< endl;
+    int x;
+    cin>>x;
+    if(x==1){
+        caso1();
+    }
+}
+
