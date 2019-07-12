@@ -130,18 +130,20 @@ int caso2()
                 placafut[i][j]=nu*(dt/(dx*dx))*((placa[i+1][j]+placa[i-1][j]+placa[i][j+1]+placa[i][j-1])-4*placa[i][j]) + placa[i][j];
             }
         }
-        for(int i=1;i<puntos-1;i++){
-            for(int j=1;j<puntos-1;j++){
+        for(int i=0;i<puntos;i++){
+            placafut[i][0]=placafut[i][1];
+            placafut[i][puntos-1]=placafut[i][puntos-2];
+            placafut[0][i]=placafut[1][i];
+            placafut[puntos-1][i]=placafut[puntos-2][i];
+        }
+        
+        for(int i=0;i<puntos;i++){
+            for(int j=0;j<puntos;j++){
                 placa[i][j]=placafut[i][j];
             }
         }
         
-        for(int i=0;i<puntos;i++){
-            placa[i][0]=placa[i][1];
-            placa[i][puntos-1]=placa[i][puntos-2];
-            placa[0][i]=placa[1][i];
-            placa[puntos-1][i]=placa[puntos-2][i];
-        }
+        
                
         if(t*dt==100){
         ofstream outfile;
@@ -221,18 +223,22 @@ int caso3()
                 placafut[i][j]=nu*(dt/(dx*dx))*((placa[i+1][j]+placa[i-1][j]+placa[i][j+1]+placa[i][j-1])-4*placa[i][j]) + placa[i][j];
             }
         }
-        for(int i=1;i<puntos-1;i++){
-            for(int j=1;j<puntos-1;j++){
+        
+        for(int i=0;i<=puntos;i++){
+            placafut[i][0]=placafut[i][puntos-2];
+            placafut[i][puntos-1]=placafut[i][1];
+            placafut[0][i]=placafut[puntos-2][i];
+            placafut[puntos-1][i]=placafut[1][i];
+        }
+        
+        
+        for(int i=0;i<puntos;i++){
+            for(int j=0;j<puntos;j++){
                 placa[i][j]=placafut[i][j];
             }
         }
         
-        for(int i=0;i<puntos;i++){
-            placa[i][0]=placa[i][puntos-2];
-            placa[i][puntos-1]=placa[i][1];
-            placa[0][i]=placa[puntos-2][i];
-            placa[puntos-1][i]=placa[1][i];
-        }
+        
         
                
         if(t*dt==100){
