@@ -29,7 +29,7 @@ def MH(sigma, pasos):
     plt.clf()
     plt.figure()
     plt.hist(xnuevos,100,density=True)
-    plt.savefig("histograma_"+str(sigma)+"_"+str(pasos)+".png")       
+    plt.savefig("histograma_"+str(sigma)+"_"+str(pasos)+".pdf")       
 
 
 # Dentro de una funcion que reciba como parametros el numero de pasos y el sigma de la distribucion gausiana que va a usar para calcular el paso de su caminata, implemente el algortimo de Metropolis-Hastings. Finalmente, haga un histograma de los datos obtenidos y grafique en la misma grafica, la funcion de distribucion de probabilidad fx (Ojo, aca debe normalizar). Guarde la grafica sin mostrarla en un pdf. Use plt.savefig("histograma_"+str(sigma)+"_"+str(pasos)+".pdf"), donde sigma y pasos son los parametros que recibe la funcion. 
