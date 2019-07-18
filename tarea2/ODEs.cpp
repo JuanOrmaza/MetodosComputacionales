@@ -9,8 +9,9 @@ float velocidad(float vel){
 
 float fuerza(float a, float b){
     float masasol= 1.989*1e30;
-    float G=6.674*1e-11;
-    return -(G*masasol*a)/pow(a*a+b*b,3/2);
+    float yr=31536000.0;
+    float G=6.674*1e-11*(1/((1.496e11)*(1.496e11)*(1.496e11)))*masasol*(yr*yr);
+    return -(G*a)/pow(a*a+b*b,3/2);
 }
 
 
@@ -100,13 +101,13 @@ float leapfrog(float x0,float y0,float vx0,float vy0,float dt,int num){
 int main()
 {
     //condiciones iniciales
-    float x0 = 0.1163*1.496e11;
-    float y0 = 0.9772*1.496e11;
-    float vx0 = -6.35*(1.496e11/31536000);
-    float vy0 = 0.606*(1.496e11/31536000);
-    float dt1=0.1;
-    float dt2=0.01;
-    float dt3=0.001;
+    float x0 = 0.1163;
+    float y0 = 0.9772;
+    float vx0 = -6.35;
+    float vy0 = 0.606;
+    float dt1=0.01;
+    float dt2=0.001;
+    float dt3=0.0001;
     Euler(x0,y0,vx0,vy0,dt1,1);
     Euler(x0,y0,vx0,vy0,dt2,2);
     Euler(x0,y0,vx0,vy0,dt3,3);
@@ -117,7 +118,7 @@ int main()
 }
 
 
-
+/*
 float runge(float x0,float y0,float vx0,float vy0,float dt)
 {
     //inicio
@@ -125,13 +126,13 @@ float runge(float x0,float y0,float vx0,float vy0,float dt)
     float xprima2=fuerza(x0,y0);
     float yprima1=velocidad(vy0);
     float yprima2=fuerza(y0,x0);
+    float t[puntos];
        
     //primer paso
     float x1 = x0 + dt/2;
     float vx1 = vx0 + 
-    
-    
-*/        
+*/   
+       
          /*
     k_1_prime1 = func_prime_1(x_old,y1_old, y2_old)
     k_1_prime2 = func_prime_2(x_old,y1_old, y2_old)
