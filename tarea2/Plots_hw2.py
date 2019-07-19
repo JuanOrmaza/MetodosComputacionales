@@ -236,8 +236,30 @@ plt.title("energia leapfrog con dt=0.001")
 plt.xlabel('t [year]')
 plt.ylabel('y [masasol*UA^2/year^2]')
 plt.savefig("Ener_met_dt.pdf")
-                   
-       
+
+
+arch = open("Resultados_hw2.txt","w")
+arch.write("Resultados parte 2:  Transformada de Fourier: Imagenes hibridas. \n")
+arch.write("\n")
+arch.write("Los pasos, presentados en las 3 graficas, consisten en convertir ambas imagenes al espacio de fourier. \n")
+arch.write("Posterior a la conversion, se realiza una observacion de las frecuencias del espectro de fourier, esto con el proposito de generar un filtro. \n")
+arch.write(" Los filtros utilizados consisten de un filtro pasa bajas y uno pasa altas. La suma de las transformadas de Fourier filtradas se llevan posteriormente a la normalidad con una transformada inversa. \n")
+arch.write("Los resultados, como se pueden observar, fueron satisfactorios. \n")
+arch.write("\n")
+arch.write("Resultados parte 3: Comparacion de los distintos metodos de solucion de ecuaciones diferenciales ordinarias: caso de una masa orbitando alrededor de otra. \n")
+arch.write("\n")
+arch.write("posicionex x,y: \n")
+arch.write("Se logro generar orbitas circulares concentricas para los 3 casos de ODEs. \n")
+arch.write("Adicionalmente, se pudo observar que euler es el menos preciso pero mejora con un dt menor. \n")
+arch.write("velocidades x,y: \n")
+arch.write("Se logra observar circulos formados por las velociades en x y y. \n")
+arch.write("Tambien se puede ver como estas velociades se ajustan a distintos cuadrantes, lo cual es esperado de los resultados. \n")
+arch.write("Energia y momento angular xy,t: \n")
+arch.write("Los resultados de la energia y momento angular son satisfactorios. Se logra visualizar como la energia y el momento se mantienen constantes. \n")
+arch.write("Por otra parte, se observa para el metodo de euler y runge-kutta como al disminuir dt se mejora la conservacion de la energia y momento. \n")
+arch.write("Esto se puede observar en el eje y con las magnitudes presentadas. \n")
+arch.close()       
+
 
 
 

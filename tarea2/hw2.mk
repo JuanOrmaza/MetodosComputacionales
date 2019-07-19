@@ -1,4 +1,4 @@
-all: a.out Fourier.py ODEs.cpp Plots_hw2.py datosrunge3.txt clean1 clean2
+all: a.out Fourier.py ODEs.cpp Plots_hw2.py datosrunge3.txt clean1
 
 a.out: ODEs.cpp
 	g++ ODEs.cpp
@@ -11,7 +11,4 @@ Plots_hw2.py: datosrunge3.txt
 	python Fourier.py
 
 clean1 :
-	rm -f *.txt
-
-clean2 :
 	rm a.out
