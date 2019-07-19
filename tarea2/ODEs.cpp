@@ -119,11 +119,14 @@ float runge(float x0,float y0,float vx0,float vy0,float dt,int num)
         
         t[i]=t[i-1]+dt;
         
+        float velx_0=velx[i-1];
+        float vely_0=vely[i-1];
+        
         //primer paso
         float posx_1 = posx[i-1] + (dt/2)*velocidad(velx[i-1]);
         float posy_1 = posy[i-1] + (dt/2)*velocidad(vely[i-1]);
-        float velx_1 = velx[i-1] + (dt/2)*fuerza(posx_1,posy_1);
-        float vely_1 = vely[i-1] + (dt/2)*fuerza(posy_1,posx_1); 
+        float velx_1 = velx_0 + (dt/2)*fuerza(posx_1,posy_1);
+        float vely_1 = vely_0 + (dt/2)*fuerza(posy_1,posx_1); 
         float forx_1 = fuerza(posx_1,posy_1);
         float fory_1 = fuerza(posy_1,posx_1);
         
@@ -131,8 +134,8 @@ float runge(float x0,float y0,float vx0,float vy0,float dt,int num)
         
         float posx_2 = posx[i-1] + (dt/2)*velx_1;
         float posy_2 = posy[i-1] + (dt/2)*vely_1;
-        float velx_2 = velx[i-1] + (dt/2)*fuerza(posx_2,posy_2);
-        float vely_2 = vely[i-1] + (dt/2)*fuerza(posy_2,posx_2); 
+        float velx_2 = velx_1 + (dt/2)*fuerza(posx_2,posy_2);
+        float vely_2 = vely_1 + (dt/2)*fuerza(posy_2,posx_2); 
         float forx_2 = fuerza(posx_2,posy_2);
         float fory_2 = fuerza(posy_2,posx_2);
         
@@ -140,14 +143,14 @@ float runge(float x0,float y0,float vx0,float vy0,float dt,int num)
         
         float posx_3 = posx[i-1] + (dt)*velx_2;
         float posy_3 = posy[i-1] + (dt)*vely_2;
-        float velx_3 = velx[i-1] + (dt)*fuerza(posx_3,posy_3);
-        float vely_3 = vely[i-1] + (dt)*fuerza(posy_3,posx_3); 
+        float velx_3 = velx_2 + (dt)*fuerza(posx_3,posy_3);
+        float vely_3 = vely_2 + (dt)*fuerza(posy_3,posx_3); 
         float forx_3 = fuerza(posx_3,posy_3);
         float fory_3 = fuerza(posy_3,posx_3);
         
         //promedio
-        float promediovelx = (1.0/6.0)*(velx[i-1] + 2.0*velx_1 + 2.0*velx_2 + velx_3);
-        float promediovely = (1.0/6.0)*(vely[i-1] + 2.0*vely_1 + 2.0*vely_2 + vely_3);   
+        float promediovelx = (1.0/6.0)*(velx_0 + 2.0*velx_1 + 2.0*velx_2 + velx_3);
+        float promediovely = (1.0/6.0)*(vely_0 + 2.0*vely_1 + 2.0*vely_2 + vely_3);   
         float promediofuerx = (1.0/6.0)*(fuerx[i-1] + 2.0*forx_1 + 2.0*forx_2 + forx_3);
         float promediofuery = (1.0/6.0)*(fuery[i-1] + 2.0*fory_1 + 2.0*fory_2 + fory_3);
             
