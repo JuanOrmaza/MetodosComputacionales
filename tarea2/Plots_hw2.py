@@ -62,7 +62,7 @@ plt.plot(datosrunge3[:,1],datosrunge3[:,3])
 plt.title("runge kutta 4orden con dt=0.001")
 plt.xlabel('x [UA]')
 plt.ylabel('y [UA]')
-plt.savefig("XY_met_dt.png")
+plt.savefig("XY_met_dt.pdf")
 
 #grafica vx vs vy
 plt.figure(figsize=(15,20))
@@ -112,7 +112,7 @@ plt.plot(datosrunge3[:,2],datosrunge3[:,4])
 plt.title("runge kutta 4orden con dt=0.001")
 plt.xlabel('x [UA/year]')
 plt.ylabel('y [UA/year]')
-plt.savefig("VxVy_met_dt.png")
+plt.savefig("VxVy_met_dt.pdf")
 
 
 #energias
@@ -185,7 +185,7 @@ plt.plot(datosrunge3[:,0],momang(datosrunge3[:,1],datosrunge3[:,3],datosrunge3[:
 plt.title("mom. ang. rungekut con dt=0.001")
 plt.xlabel('t [year]')
 plt.ylabel('y [masasol*UA^2/year]')
-plt.savefig("Mome_met_dt.png")
+plt.savefig("Mome_met_dt.pdf")
 
 #grafica energia
 plt.figure(figsize=(25,25))
@@ -235,7 +235,7 @@ plt.plot(datosrunge3[:,0],energia(datosrunge3[:,1],datosrunge3[:,3],datosrunge3[
 plt.title("energia leapfrog con dt=0.001")
 plt.xlabel('t [year]')
 plt.ylabel('y [masasol*UA^2/year^2]')
-plt.savefig("Ener_met_dt.png")
+plt.savefig("Ener_met_dt.pdf")
                    
        
 
